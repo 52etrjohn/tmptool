@@ -1,4 +1,4 @@
-(function() {
+javascript:(function() {
     var accessCode = prompt("Enter the access code:");
 
     if (accessCode !== "123") {
