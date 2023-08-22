@@ -1,4 +1,4 @@
-(function() {
+javascript(function() {
     var accessCode = prompt("Enter the access code:");
 
     if (accessCode !== "123") {
@@ -19,7 +19,7 @@
     menuContainer.style.display = 'block';
 
     var unblockersNote = document.createElement('p');
-    unblockersNote.innerText = 'Some tool's not made by me';
+    unblockersNote.innerText = 'Some tool\'s not made by me';
     unblockersNote.style.fontSize = '12px';
     unblockersNote.style.color = 'grey';
     unblockersNote.style.textAlign = 'center';
