@@ -47,6 +47,33 @@
     });
     menuContainer.appendChild(creditsButton);
 
+    var toolsContainer = document.createElement('div');
+    toolsContainer.style.marginTop = '20px';
+    toolsContainer.style.textAlign = 'center';
+
+    var toolsTitle = document.createElement('h4');
+    toolsTitle.innerText = 'Tools';
+    toolsTitle.style.marginBottom = '10px';
+    toolsContainer.appendChild(toolsTitle);
+
+    var tools = [
+        { name: 'Tab Cloaker', code: 'var newTitle = prompt("Enter new title for the tab:"); if (newTitle) document.title = newTitle;' },
+        { name: 'Old SU1 Tool (Some features might not work)', code: 'const scriptUrl = "https://raw.githubusercontent.com/securlyunblocker/SU1/main/main.js";\nconst loadScript = async (url) => {\n const response = await fetch(url);\n const script = await response.text();\n eval(script);\n};\nloadScript(scriptUrl);' },
+        { name: 'Point Blank Swap Disabler', code: 'document = window.document; alert("This has to be ran on a extension about:blank page"); document.write("<html><body><h1>[Point Blank Swap Launcher]</h1><center><h1>---Disabling---</h1></center><center><button id=\'kill\'>Soft Disable</button></center><center><button id=\'disable\'>Hard Kill</button></center><center><button id=\'revkill\'>Revert Hard Kill</button></center><center><h1>--Extension Sites--</h1></center><center><h4>This is where you find the pages you are supposed to run this bookmarklet Choose your blocker below, if it says blocked by chrome, reload the page then click the link</h4><button id=\'blocksi\'>Blocksi</button><button id=\'classrom\'>Securly Classroom</button><button id=\'curly\'>Securly</button><button id=\'gogog\'>GoGuardian</button><button id=\'iBoss\'>iBoss</button><button id=\'umbrella\'>Cisco Umbrella</button><center><h1> ---Scripts--- </h1></center><center><button id=\'goofy\'>Display Goofy Alert</button><button id=\'aboutB\'>A.B.C Cloaker</button></center><center><button id=\'securly\'>Custom Securly Page</button><button id=\'classroom\'>Custom Securly Classroom page</button></center><center><center><h4>Note: Some extensions do not allow eval to be ran, which means running your own code won\'t work. Instead, try the other scripts above</h4></center><textarea id=\'code\' placeholder=\'Put Code Here\'></textarea></center><center><button id=\'run\'>Run Code</button></center></body></html>");' }
+    ];
+
+    for (var i = 0; i < tools.length; i++) {
+        var toolButton = document.createElement('button');
+        toolButton.innerText = tools[i].name;
+        toolButton.style.marginRight = '5px';
+        toolButton.style.display = 'block';
+        toolButton.style.marginBottom = '5px';
+        toolButton.addEventListener('click', new Function(tools[i].code));
+        toolsContainer.appendChild(toolButton);
+    }
+
+    menuContainer.appendChild(toolsContainer);
+
     var gamesContainer = document.createElement('div');
     gamesContainer.id = 'games';
     gamesContainer.style.marginTop = '20px';
