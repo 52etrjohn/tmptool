@@ -1,11 +1,8 @@
-javascript:(function() {
-    var accessCode = prompt("Enter the access code:");
-
-    if (accessCode !== "123") {
-        return;
-    }
-
-    alert("Press ] to toggle the menu's visibility\nMade by Tmp\nSU1 made by dproscripts");
+javascript: var password = prompt("Enter the access code:");
+if (password !== "tmptool5") {
+    alert("Access denied.");
+} else {
+    alert("Press ] to toggle the menu's visibility\nMade by Tmp");
 
     var menuContainer = document.createElement('div');
     menuContainer.style.position = 'fixed';
@@ -19,47 +16,27 @@ javascript:(function() {
     menuContainer.style.display = 'block';
 
     var unblockersNote = document.createElement('p');
-    unblockersNote.innerText = 'Some tool\'s not made by me';
+    unblockersNote.innerText = 'Some unblockers not made by me';
     unblockersNote.style.fontSize = '12px';
     unblockersNote.style.color = 'grey';
     unblockersNote.style.textAlign = 'center';
     menuContainer.appendChild(unblockersNote);
 
     var titleElement = document.createElement('h3');
-    titleElement.innerText = "Tmp's tools";
+    titleElement.innerText = "Tmp's Unblockers";
     titleElement.style.marginBottom = '10px';
     titleElement.style.textAlign = 'center';
     menuContainer.appendChild(titleElement);
 
     var authorElement = document.createElement('p');
-    authorElement.innerText = "By Tmp\nSU1 made by dproscripts";
+    authorElement.innerText = "By Tmp";
     authorElement.style.textAlign = 'center';
     menuContainer.appendChild(authorElement);
-
-    var creditsButton = document.createElement('button');
-    creditsButton.innerText = 'Credits';
-    creditsButton.style.marginRight = '5px';
-    creditsButton.style.display = 'block';
-    creditsButton.style.marginBottom = '5px';
-    creditsButton.addEventListener('click', function() {
-        menuContainer.style.display = 'none';
-        creditsContainer.style.display = 'block';
-    });
-    menuContainer.appendChild(creditsButton);
-
-    var toolsContainer = document.createElement('div');
-    toolsContainer.style.marginTop = '20px';
-    toolsContainer.style.textAlign = 'center';
-
-    var toolsTitle = document.createElement('h4');
-    toolsTitle.innerText = 'Tools';
-    toolsTitle.style.marginBottom = '10px';
-    toolsContainer.appendChild(toolsTitle);
 
     var tools = [
         { name: 'Tab Cloaker', code: 'var newTitle = prompt("Enter new title for the tab:"); if (newTitle) document.title = newTitle;' },
         { name: 'Old SU1 Tool (Some features might not work)', code: 'const scriptUrl = "https://raw.githubusercontent.com/securlyunblocker/SU1/main/main.js";\nconst loadScript = async (url) => {\n const response = await fetch(url);\n const script = await response.text();\n eval(script);\n};\nloadScript(scriptUrl);' },
-        { name: 'Point Blank Swap Disabler', code: 'document = window.document; alert("This has to be ran on a extension about:blank page"); document.write("<html><body><h1>[Point Blank Swap Launcher]</h1><center><h1>---Disabling---</h1></center><center><button id=\'kill\'>Soft Disable</button></center><center><button id=\'disable\'>Hard Kill</button></center><center><button id=\'revkill\'>Revert Hard Kill</button></center><center><h1>--Extension Sites--</h1></center><center><h4>This is where you find the pages you are supposed to run this bookmarklet Choose your blocker below, if it says blocked by chrome, reload the page then click the link</h4><button id=\'blocksi\'>Blocksi</button><button id=\'classrom\'>Securly Classroom</button><button id=\'curly\'>Securly</button><button id=\'gogog\'>GoGuardian</button><button id=\'iBoss\'>iBoss</button><button id=\'umbrella\'>Cisco Umbrella</button><center><h1> ---Scripts--- </h1></center><center><button id=\'goofy\'>Display Goofy Alert</button><button id=\'aboutB\'>A.B.C Cloaker</button></center><center><button id=\'securly\'>Custom Securly Page</button><button id=\'classroom\'>Custom Securly Classroom page</button></center><center><center><h4>Note: Some extensions do not allow eval to be ran, which means running your own code won\'t work. Instead, try the other scripts above</h4></center><textarea id=\'code\' placeholder=\'Put Code Here\'></textarea></center><center><button id=\'run\'>Run Code</button></center></body></html>");' }
+        { name: 'Point Blank Swap Disabler', code: 'document = window.document; alert("This has to be ran on a extension about:blank page"); document.write("<html><body><h1>[Point Blank Swap Launcher]</h1><center><h1>---Disabling---</h1></center><center><button id=\'kill\'>Soft Disable</button></center><center><button id=\'disable\'>Hard Kill</button></center><center><button id=\'revkill\'>Revert Hard Kill</button></center><center><h1>--Extension Sites--</h1></center><center><h4>This is where you find the pages you are supposed to run this bookmarklet Choose your blocker below, if it says blocked by chrome, reload the page then click the link</h4><button id=\'blocksi\'>Blocksi</button><button id=\'classrom\'>Securly Classroom</button><button id=\'curly\'>Securly</button><button id=\'gogog\'>GoGuardian</button><button id=\'iBoss\'>iBoss</button><button id=\'umbrella\'>Cisco Umbrella</button><center><h1> ---Scripts--- </h1></center><center><button id=\'goofy\'>Display Goofy Alert</button><button id=\'aboutB\'>A.B.C Cloaker</button></center><button id=\'suggestions\'>Suggestions</button><center><button id=\'securly\'>Custom Securly Page</button><button id=\'classroom\'>Custom Securly Classroom page</button></center><center><center><h4>Note: Some extensions do not allow eval to be ran, which means running your own code won\'t work. Instead, try the other scripts above</h4></center><textarea id=\'code\' placeholder=\'Put Code Here\'></textarea></center><center><button id=\'run\'>Run Code</button></center></body></html>");' }
     ];
 
     for (var i = 0; i < tools.length; i++) {
@@ -69,10 +46,8 @@ javascript:(function() {
         toolButton.style.display = 'block';
         toolButton.style.marginBottom = '5px';
         toolButton.addEventListener('click', new Function(tools[i].code));
-        toolsContainer.appendChild(toolButton);
+        menuContainer.appendChild(toolButton);
     }
-
-    menuContainer.appendChild(toolsContainer);
 
     var gamesContainer = document.createElement('div');
     gamesContainer.id = 'games';
@@ -104,56 +79,25 @@ javascript:(function() {
         gamesContainer.appendChild(gameButton);
     }
 
+    var suggestionsButton = document.createElement('button');
+    suggestionsButton.innerText = 'Suggestions';
+    suggestionsButton.style.marginRight = '5px';
+    suggestionsButton.style.display = 'block';
+    suggestionsButton.style.marginBottom = '5px';
+    suggestionsButton.addEventListener('click', function() {
+        window.location.href = "https://docs.google.com/forms/d/e/1FAIpQLSdJMt5hg_la2Knd2WevGC_ETTXjIx2FyQi6heBMaIHGomhVcA/viewform?usp=sf_link";
+    });
+    gamesContainer.appendChild(suggestionsButton);
+
     menuContainer.appendChild(gamesContainer);
 
     var menuToggleKey = ']';
 
     document.addEventListener('keydown', function(event) {
         if (event.key === menuToggleKey) {
-            if (menuContainer.style.display === 'none') {
-                menuContainer.style.display = 'block';
-                creditsContainer.style.display = 'none';
-            } else {
-                menuContainer.style.display = 'none';
-                creditsContainer.style.display = 'block';
-            }
+            menuContainer.style.display = menuContainer.style.display === 'none' ? 'block' : 'none';
         }
     });
 
-    var creditsContainer = document.createElement('div');
-    creditsContainer.style.position = 'fixed';
-    creditsContainer.style.top = '10px';
-    creditsContainer.style.right = '10px';
-    creditsContainer.style.background = 'black';
-    creditsContainer.style.color = 'white';
-    creditsContainer.style.border = '1px solid #ccc';
-    creditsContainer.style.padding = '10px';
-    creditsContainer.style.zIndex = '9999';
-    creditsContainer.style.display = 'none';
-
-    var tmpCredit = document.createElement('p');
-    tmpCredit.innerText = 'Tmp';
-    tmpCredit.style.textAlign = 'center';
-    tmpCredit.style.marginBottom = '5px';
-    creditsContainer.appendChild(tmpCredit);
-
-    var dproCredit = document.createElement('p');
-    dproCredit.innerText = 'DproMc';
-    dproCredit.style.textAlign = 'center';
-    dproCredit.style.marginBottom = '5px';
-    creditsContainer.appendChild(dproCredit);
-
-    var backButton = document.createElement('button');
-    backButton.innerText = '<- Back';
-    backButton.style.marginRight = '5px';
-    backButton.style.display = 'block';
-    backButton.style.marginBottom = '5px';
-    backButton.addEventListener('click', function() {
-        menuContainer.style.display = 'block';
-        creditsContainer.style.display = 'none';
-    });
-    creditsContainer.appendChild(backButton);
-
     document.body.appendChild(menuContainer);
-    document.body.appendChild(creditsContainer);
-})();
+}
